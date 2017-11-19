@@ -1,0 +1,33 @@
+#include <iostream>
+
+using namespace std;
+
+void quicksort(int a[], int i, int j)
+{
+    if(i<j){
+        int flag = a[i], l = i, r = j;
+        while(l<r){
+            while(a[r]>=flag && l<r)
+                r--;
+            a[l] = a[r];
+            while(a[l]<=flag && l<r)
+                l++;
+            a[r] = a[l];
+        }
+        a[l] = flag;
+        quicksort(a,i,l-1);
+        quicksort(a,l+1,j);
+    }
+}
+int main()
+{
+    int n, i(0);
+    cin >> n;
+    int *num = new int[n];
+    while(i<n)
+        cin >> num[i++];
+    quicksort(num,0,n-1);
+    for(int i = 0; i < n; i++)
+        cout << num[i] << " ";
+    return 0;
+}
