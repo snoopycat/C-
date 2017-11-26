@@ -1,2 +1,2 @@
-# C-
+# C++
 personal oj code exercise
